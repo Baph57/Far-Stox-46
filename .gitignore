@@ -62,4 +62,4 @@ sysinfo.txt
 crashlytics-build.properties
 
 # Custom Imports that don't need to be tracked
-./Assets/Imports
+Assets/Imports
