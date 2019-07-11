@@ -121,24 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &461550025 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5524261423537210245, guid: ffafd1bf36b6044dc98414e8ed2e53b1,
-    type: 3}
-  m_PrefabInstance: {fileID: 717881923}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &461550026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461550025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c6685ad9944e44f0875de41244b68e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &603950956
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +307,7 @@ PrefabInstance:
     - target: {fileID: 4666059873718625515, guid: ffafd1bf36b6044dc98414e8ed2e53b1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.19
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4666059873718625515, guid: ffafd1bf36b6044dc98414e8ed2e53b1,
         type: 3}
@@ -335,7 +317,7 @@ PrefabInstance:
     - target: {fileID: 4666059873718625515, guid: ffafd1bf36b6044dc98414e8ed2e53b1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.78
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4666059873718625515, guid: ffafd1bf36b6044dc98414e8ed2e53b1,
         type: 3}
@@ -376,6 +358,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461550026, guid: ffafd1bf36b6044dc98414e8ed2e53b1, type: 3}
+      propertyPath: xPlaneSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 461550026, guid: ffafd1bf36b6044dc98414e8ed2e53b1, type: 3}
+      propertyPath: maxAllowedXPlaneTravel
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffafd1bf36b6044dc98414e8ed2e53b1, type: 3}
@@ -437,7 +427,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 75
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
