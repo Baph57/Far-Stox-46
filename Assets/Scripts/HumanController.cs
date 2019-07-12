@@ -1,19 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class HumanController : MonoBehaviour
 {
+    //cross platform refers to axis' rather than specific keys
+    //we import this using Standard Assets
+    //"Throw" implies the amount of distance the joystick has travelled from genesis
+
     //x-axis
+    float xPlaneThrow;
     [Tooltip("In Meters")] [SerializeField] float maxAllowedXPlaneTravel = 10f;
     [Tooltip("In Meters/Second (ms^-1)")][SerializeField] float xPlaneSpeed = 30f;
 
     //y-axis
+    float yPlaneThrow;
     [Tooltip("In Meters/Second (ms^-1)")] [SerializeField] float yPlaneSpeed = 20f;
     [Tooltip("In Meters")] [SerializeField] float maxAllowedYPlaneTravel = 7f;
 
-    [SerializeField] float positionPitchFactor = -5f;
+    //Arithmetic Member Variables
+    [SerializeField] float positionPitchFactor = -5f;//
+    [SerializeField] float controlledPitchFactor = -20f;
+    [SerializeField] float positionYawFactor = 5f;
+    [SerializeField] float controlledRollFactor = -20f;
+
 
 
 
@@ -32,21 +44,19 @@ public class HumanController : MonoBehaviour
 
         //processing rotation
         ProcessingRotationMovement();
+
     }
 
     private void HorizontalMovementController()
     {
-        //cross platform refers to axis' rather than specific keys
-        //we import this using Standard Assets
-        //"Throw" implies the amount of distance the joystick has travelled from genesis
-        float xPlaneThrow = CrossPlatformInputManager.GetAxis("Horizontal");
-        //throw implies force we are applying using input controls
 
-        //We take Throw(Amount of force applied)
-        //Speed(How fast the plane moves)
-        //DeltaTime(If the frame took longer, the delta time would be higher and make you move farther
-        //and finally we have the amount of X-Plane Units to move per frame
-        float xOffsetOfCurrentFrame = xPlaneThrow * xPlaneSpeed * Time.deltaTime;
+    xPlaneThrow = CrossPlatformInputManager.GetAxis("Horizontal");
+
+    //We take Throw(Amount of force applied)
+    //Speed(How fast the plane moves)
+    //DeltaTime(If the frame took longer, the delta time would be higher and make you move farther
+    //and finally we have the amount of X-Plane Units to move per frame
+    float xOffsetOfCurrentFrame = xPlaneThrow * xPlaneSpeed * Time.deltaTime;
 
         //current xpos vs desired offset
         float rawDesiredNewXPosition = transform.localPosition.x + xOffsetOfCurrentFrame;
@@ -72,11 +82,8 @@ public class HumanController : MonoBehaviour
 
     private void VerticalMovementController()
     {
-        //cross platform refers to axis' rather than specific keys
-        //we import this using Standard Assets
-        //"Throw" implies the amount of distance the joystick has travelled from genesis
-        float yPlaneThrow = CrossPlatformInputManager.GetAxis("Vertical");
-        //throw implies force we are applying using input controls
+        yPlaneThrow = CrossPlatformInputManager.GetAxis("Vertical");
+
 
         //We take Throw(Amount of force applied)
         //Speed(How fast the plane moves)
@@ -108,9 +115,15 @@ public class HumanController : MonoBehaviour
 
     private void ProcessingRotationMovement()
     {
-        float pitch = transform.localPosition.y * positionPitchFactor;
-        float yaw=0f;
-        float roll=0f;
+        float pitch =
+            transform.localPosition.y *//current local y pos
+            positionPitchFactor + //positionally how much to affect pitch
+            yPlaneThrow * //our CrossPlatformManager that allows joysticks and keys
+            controlledPitchFactor; //
+
+        float yaw = transform.localPosition.x * positionYawFactor;
+            
+        float roll= xPlaneThrow * controlledRollFactor;
 
         //order of rotation maters!!!!
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
