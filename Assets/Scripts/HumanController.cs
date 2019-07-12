@@ -8,9 +8,12 @@ public class HumanController : MonoBehaviour
     //x-axis
     [Tooltip("In Meters")] [SerializeField] float maxAllowedXPlaneTravel = 10f;
     [Tooltip("In Meters/Second (ms^-1)")][SerializeField] float xPlaneSpeed = 30f;
+
     //y-axis
     [Tooltip("In Meters/Second (ms^-1)")] [SerializeField] float yPlaneSpeed = 20f;
     [Tooltip("In Meters")] [SerializeField] float maxAllowedYPlaneTravel = 7f;
+
+    [SerializeField] float positionPitchFactor = -5f;
 
 
 
@@ -23,8 +26,12 @@ public class HumanController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //processing translation (movement)
         HorizontalMovementController();
         VerticalMovementController();
+
+        //processing rotation
+        ProcessingRotationMovement();
     }
 
     private void HorizontalMovementController()
@@ -63,7 +70,6 @@ public class HumanController : MonoBehaviour
             );
     }
 
-
     private void VerticalMovementController()
     {
         //cross platform refers to axis' rather than specific keys
@@ -98,5 +104,15 @@ public class HumanController : MonoBehaviour
             clampedNewYPosition,//Y axis of vector, what we want to manipulate
             transform.localPosition.z//this also leaves z position the same
             );
+    }
+
+    private void ProcessingRotationMovement()
+    {
+        float pitch = transform.localPosition.y * positionPitchFactor;
+        float yaw=0f;
+        float roll=0f;
+
+        //order of rotation maters!!!!
+        transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
 }
