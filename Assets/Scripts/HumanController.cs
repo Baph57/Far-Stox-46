@@ -125,7 +125,7 @@ public class HumanController : MonoBehaviour
             
         float roll= xPlaneThrow * controlledRollFactor;
 
-        //order of rotation maters!!!!
+        //order of rotation maters!!!! 
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
 }
