@@ -35,6 +35,16 @@ public class HumanController : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        print("player collided with something (physics)");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        print("player triggered somethin (no physics)");
+    }
+
     // Update is called once per frame
     void Update()
     {
