@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4666059873718625515}
   - component: {fileID: 461550026}
+  - component: {fileID: 717881926}
+  - component: {fileID: 717881927}
+  - component: {fileID: 717881928}
   m_Layer: 0
   m_Name: FullPlayerShip
   m_TagString: Untagged
@@ -46,12 +49,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAllowedXPlaneTravel: 10
   xPlaneSpeed: 30
-  yPlaneSpeed: 20
   maxAllowedYPlaneTravel: 7
+  yPlaneSpeed: 20
   positionPitchFactor: -5
-  controlledPitchFactor: 0
   positionYawFactor: 5
+  controlledPitchFactor: 0
   controlledRollFactor: -20
+--- !u!54 &717881926
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5524261423537210245}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &717881927
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5524261423537210245}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &717881928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5524261423537210245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9190abc76bfcb448899032f8680ec802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6108298041360427463
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +197,71 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288207939181467415, guid: 1e6cecf4314dc4b1f81c576727f0632f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e5379c58bf2bacd429a6b7ce417fe5e1, type: 2}
+    - target: {fileID: 1288207939181467416, guid: 1e6cecf4314dc4b1f81c576727f0632f,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288207939181467416, guid: 1e6cecf4314dc4b1f81c576727f0632f,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288207939181467416, guid: 1e6cecf4314dc4b1f81c576727f0632f,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288207939181467416, guid: 1e6cecf4314dc4b1f81c576727f0632f,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288207939181467416, guid: 1e6cecf4314dc4b1f81c576727f0632f,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.24313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288207939181467416, guid: 1e6cecf4314dc4b1f81c576727f0632f,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288207939181467416, guid: 1e6cecf4314dc4b1f81c576727f0632f,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288207939181467416, guid: 1e6cecf4314dc4b1f81c576727f0632f,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288207939181467416, guid: 1e6cecf4314dc4b1f81c576727f0632f,
+        type: 3}
+      propertyPath: TrailModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288207939181467416, guid: 1e6cecf4314dc4b1f81c576727f0632f,
+        type: 3}
+      propertyPath: TrailModule.lifetime.scalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288207939181467416, guid: 1e6cecf4314dc4b1f81c576727f0632f,
+        type: 3}
+      propertyPath: TrailModule.sizeAffectsWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288207939181467416, guid: 1e6cecf4314dc4b1f81c576727f0632f,
+        type: 3}
+      propertyPath: TrailModule.widthOverTrail.scalar
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e6cecf4314dc4b1f81c576727f0632f, type: 3}

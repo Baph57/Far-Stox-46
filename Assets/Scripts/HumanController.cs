@@ -10,24 +10,30 @@ public class HumanController : MonoBehaviour
     //we import this using Standard Assets
     //"Throw" implies the amount of distance the joystick has travelled from genesis
 
+
     //x-axis
     float xPlaneThrow;
+    [Header("X-Plane")] //categorization in editor
     [Tooltip("In Meters")] [SerializeField] float maxAllowedXPlaneTravel = 10f;
     [Tooltip("In Meters/Second (ms^-1)")][SerializeField] float xPlaneSpeed = 30f;
 
     //y-axis
     float yPlaneThrow;
-    [Tooltip("In Meters/Second (ms^-1)")] [SerializeField] float yPlaneSpeed = 20f;
+    [Header("Y-Plane")]
     [Tooltip("In Meters")] [SerializeField] float maxAllowedYPlaneTravel = 7f;
+    [Tooltip("In Meters/Second (ms^-1)")] [SerializeField] float yPlaneSpeed = 20f;
 
     //Arithmetic Member Variables
+    [Header("Screen vs. Position Based")]
     [SerializeField] float positionPitchFactor = -5f;//
-    [SerializeField] float controlledPitchFactor = -20f;
     [SerializeField] float positionYawFactor = 5f;
+
+    [Header("Control vs. Throw Based")]
+    [SerializeField] float controlledPitchFactor = -20f;
     [SerializeField] float controlledRollFactor = -20f;
 
 
-
+    bool isDeathConditionMet = false;
 
     // Start is called before the first frame update
     void Start()
@@ -35,25 +41,24 @@ public class HumanController : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void PrintDeath() //called by string-reference method
     {
-        print("player collided with something (physics)");
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        print("player triggered somethin (no physics)");
+        isDeathConditionMet = true;
+        print("message has been sent!");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isDeathConditionMet == false)
+        {
         //processing translation (movement)
         HorizontalMovementController();
         VerticalMovementController();
 
         //processing rotation
         ProcessingRotationMovement();
+        }
 
     }
 
