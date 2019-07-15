@@ -6,6 +6,10 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class HumanController : MonoBehaviour
 {
+
+    //TODO: Why is the speed not constant and seemingly changing?
+
+
     //cross platform refers to axis' rather than specific keys
     //we import this using Standard Assets
     //"Throw" implies the amount of distance the joystick has travelled from genesis
@@ -38,10 +42,10 @@ public class HumanController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //print();
     }
 
-    void PrintDeath() //called by string-reference method
+    void DeathConditionWasMet() //called by string-reference method
     {
         isDeathConditionMet = true;
         print("message has been sent!");
