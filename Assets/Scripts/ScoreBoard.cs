@@ -6,7 +6,6 @@ using UnityEngine.UI; //UI namespace, namespaces are collections of classes
 public class ScoreBoard : MonoBehaviour
 {
 
-    [SerializeField] int scorePerHit = 50;
 
     int score; //by deafult ints intialize to zero
     Text scoreValue; //Text is available by using UE.UI
@@ -20,9 +19,9 @@ public class ScoreBoard : MonoBehaviour
 
     //public means that this function can call methods/funcs outside this class
 
-    public void ScoreHandler()
+    public void ScoreHandler(int amountToIncreaseScore)
     {
-        score = score + scorePerHit;
+        score = score + amountToIncreaseScore;
         scoreValue.text = score.ToString();
     }
 }

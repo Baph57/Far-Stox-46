@@ -7,13 +7,21 @@ public class NPCEnemy : MonoBehaviour
 
     [SerializeField] GameObject DeathFX;
     [SerializeField] Transform parent;
+    [SerializeField] int scorePerHit = 50;
+    ScoreBoard scoreBoard; //instatitating an instance of our scoreboard class!
 
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
+        AddBoxColliderOnRuntime();
+        scoreBoard = FindObjectOfType<ScoreBoard>();
+    }
 
-       //Collider npcBoxCollider = gameObject.AddComponent<BoxCollider>();
+    private void AddBoxColliderOnRuntime()
+    {
+        //Collider npcBoxCollider = gameObject.AddComponent<BoxCollider>();
         //npcBoxCollider.isTrigger = true;
 
         //Ben is not a fan of this, calling it a 'side effect'
@@ -32,6 +40,11 @@ public class NPCEnemy : MonoBehaviour
 
         //this allows us to parent the deathFX to an empty game object
         Explosion.transform.parent = parent;
+
+        //using an instance of ScoreBoard and assigning it to
+        //FindObjectOfType, we essentially use the instance to grab
+        //the actual scoreboard in the game!
+        scoreBoard.ScoreHandler(scorePerHit);
 
         print("particles collided with enemy " + gameObject.name);
         Destroy(gameObject);
