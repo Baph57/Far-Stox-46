@@ -837,59 +837,47 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 281030778, guid: ed8b5e3ff3658402c8a9132724adf4db, type: 3}
-      propertyPath: DeathFX
-      value: 
-      objectReference: {fileID: 2687133680165939286, guid: a5e1e6a1cbfee4aca8b189e6a470ddd1,
-        type: 3}
-    - target: {fileID: 281030778, guid: ed8b5e3ff3658402c8a9132724adf4db, type: 3}
       propertyPath: parent
       value: 
       objectReference: {fileID: 122618545}
     - target: {fileID: 1657139768, guid: ed8b5e3ff3658402c8a9132724adf4db, type: 3}
-      propertyPath: DeathFX
-      value: 
-      objectReference: {fileID: 2687133680165939286, guid: a5e1e6a1cbfee4aca8b189e6a470ddd1,
-        type: 3}
-    - target: {fileID: 1657139768, guid: ed8b5e3ff3658402c8a9132724adf4db, type: 3}
-      propertyPath: parent
-      value: 
-      objectReference: {fileID: 122618545}
-    - target: {fileID: 1657139768, guid: ed8b5e3ff3658402c8a9132724adf4db, type: 3}
-      propertyPath: scorePerHit
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 1521050718, guid: ed8b5e3ff3658402c8a9132724adf4db, type: 3}
-      propertyPath: DeathFX
-      value: 
-      objectReference: {fileID: 2687133680165939286, guid: a5e1e6a1cbfee4aca8b189e6a470ddd1,
-        type: 3}
-    - target: {fileID: 1521050718, guid: ed8b5e3ff3658402c8a9132724adf4db, type: 3}
       propertyPath: parent
       value: 
       objectReference: {fileID: 122618545}
     - target: {fileID: 1521050718, guid: ed8b5e3ff3658402c8a9132724adf4db, type: 3}
-      propertyPath: scorePerHit
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 1790155132, guid: ed8b5e3ff3658402c8a9132724adf4db, type: 3}
-      propertyPath: DeathFX
-      value: 
-      objectReference: {fileID: 2687133680165939286, guid: a5e1e6a1cbfee4aca8b189e6a470ddd1,
-        type: 3}
-    - target: {fileID: 1790155132, guid: ed8b5e3ff3658402c8a9132724adf4db, type: 3}
       propertyPath: parent
       value: 
       objectReference: {fileID: 122618545}
     - target: {fileID: 1790155132, guid: ed8b5e3ff3658402c8a9132724adf4db, type: 3}
-      propertyPath: scorePerHit
-      value: 500
-      objectReference: {fileID: 0}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 122618545}
     - target: {fileID: 1018560691, guid: ed8b5e3ff3658402c8a9132724adf4db, type: 3}
-      propertyPath: DeathFX
+      propertyPath: parent
       value: 
-      objectReference: {fileID: 2687133680165939286, guid: a5e1e6a1cbfee4aca8b189e6a470ddd1,
+      objectReference: {fileID: 122618545}
+    - target: {fileID: 6406887290119457770, guid: ed8b5e3ff3658402c8a9132724adf4db,
         type: 3}
-    - target: {fileID: 1018560691, guid: ed8b5e3ff3658402c8a9132724adf4db, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 122618545}
+    - target: {fileID: 4151501047773788732, guid: ed8b5e3ff3658402c8a9132724adf4db,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 122618545}
+    - target: {fileID: 491103916542227889, guid: ed8b5e3ff3658402c8a9132724adf4db,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 122618545}
+    - target: {fileID: 3079016784317105014, guid: ed8b5e3ff3658402c8a9132724adf4db,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 122618545}
+    - target: {fileID: 3962189431553301976, guid: ed8b5e3ff3658402c8a9132724adf4db,
+        type: 3}
       propertyPath: parent
       value: 
       objectReference: {fileID: 122618545}
@@ -1106,6 +1094,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.40300003
       objectReference: {fileID: 0}
+    - target: {fileID: 8410572036471941240, guid: 80d88780330bd4ea3a40ceb311962d37,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 19.680456
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410572036471941240, guid: 80d88780330bd4ea3a40ceb311962d37,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 23.619287
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410572036471941242, guid: 80d88780330bd4ea3a40ceb311962d37,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 43d8d8ce3e4cebe47993cfc0f6764f60, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80d88780330bd4ea3a40ceb311962d37, type: 3}
 --- !u!114 &8891828597063297578 stripped
