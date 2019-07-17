@@ -7,7 +7,10 @@ public class NPCEnemy : MonoBehaviour
 
     [SerializeField] GameObject DeathFX;
     [SerializeField] Transform parent;
-    [SerializeField] int scorePerHit = 50;
+    [SerializeField] int scorePerKill = 50;
+    //Ben decided to change from HP to number of times hit
+    //[SerializeField] int healthPoints = 50;
+    [SerializeField] int amountOfHitsNeededToKill = 10;
     ScoreBoard scoreBoard; //instatitating an instance of our scoreboard class!
 
 
@@ -34,6 +37,16 @@ public class NPCEnemy : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
+        --amountOfHitsNeededToKill;
+        //TODO: consider adding hitFX
+        if(amountOfHitsNeededToKill <= 0)
+        {
+            EnemyDeathConditionMet();
+        }
+    }
+
+    private void EnemyDeathConditionMet()
+    {
         //Quaternion.identity here is simply saying we want no rotation
         //Or to set the rotation to the current quaterion identity
         GameObject Explosion = Instantiate(DeathFX, transform.position, Quaternion.identity);
@@ -44,9 +57,9 @@ public class NPCEnemy : MonoBehaviour
         //using an instance of ScoreBoard and assigning it to
         //FindObjectOfType, we essentially use the instance to grab
         //the actual scoreboard in the game!
-        scoreBoard.ScoreHandler(scorePerHit);
+        scoreBoard.ScoreHandler(scorePerKill);
 
-        print("particles collided with enemy " + gameObject.name);
+        print("Death Condition Met| Enemy: " + gameObject.name);
         Destroy(gameObject);
     }
 }

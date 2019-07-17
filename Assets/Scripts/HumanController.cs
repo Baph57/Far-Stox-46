@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,7 +14,6 @@ public class HumanController : MonoBehaviour
     //cross platform refers to axis' rather than specific keys
     //we import this using Standard Assets
     //"Throw" implies the amount of distance the joystick has travelled from genesis
-
 
     //x-axis
     float xPlaneThrow;
@@ -35,6 +35,10 @@ public class HumanController : MonoBehaviour
     [Header("Control vs. Throw Based")]
     [SerializeField] float controlledPitchFactor = -20f;
     [SerializeField] float controlledRollFactor = -20f;
+
+
+    [Header("Guns")]
+    [SerializeField] GameObject[] Guns;
 
 
     bool isDeathConditionMet = false;
@@ -62,6 +66,9 @@ public class HumanController : MonoBehaviour
 
         //processing rotation
         ProcessingRotationMovement();
+
+        //processing player firing
+        ProccesingHumanFiring();
         }
 
     }
@@ -146,5 +153,36 @@ public class HumanController : MonoBehaviour
 
         //order of rotation maters!!!! 
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
+    }
+
+    void ProccesingHumanFiring()
+    {
+        if (CrossPlatformInputManager.GetButton("Fire1"))
+        {
+            ProjectilesShouldFire(true);   
+        }
+        else
+        {
+            ProjectilesShouldFire(false);
+        }
+    }
+
+    private void ProjectilesShouldFire(bool weShouldFire)
+    {
+        if (weShouldFire)
+        {
+            foreach(GameObject gun in Guns)
+            {
+                gun.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (GameObject gun in Guns)
+            {
+                gun.SetActive(false);
+            }
+        }
+        //throw new NotImplementedException(); ?? 
     }
 }
