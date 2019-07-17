@@ -243,6 +243,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc86c13575b334eb48b015f034cf15b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &465029636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2687133680408115066, guid: ffafd1bf36b6044dc98414e8ed2e53b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 717881923}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &584567112
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,6 +488,20 @@ PrefabInstance:
       propertyPath: Guns.Array.data[1]
       value: 
       objectReference: {fileID: 1575816503629355266}
+    - target: {fileID: 2687133680408115066, guid: ffafd1bf36b6044dc98414e8ed2e53b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 717881928, guid: ffafd1bf36b6044dc98414e8ed2e53b1, type: 3}
+      propertyPath: DeathFX
+      value: 
+      objectReference: {fileID: 465029636}
+    - target: {fileID: 2687133680408115067, guid: ffafd1bf36b6044dc98414e8ed2e53b1,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffafd1bf36b6044dc98414e8ed2e53b1, type: 3}
 --- !u!4 &717881924 stripped
